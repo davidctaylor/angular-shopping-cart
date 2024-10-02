@@ -46,7 +46,9 @@ export class ProductsStateService {
   public select(product: DummyProduct) {
     this._productState.next({
       ...this._productState.value,
-      selected: [product, ...this._productState.value.selected],
+      selected: [product, ...this._productState.value.selected].sort(
+        (a, b) => b.id - a.id
+      ),
     });
   }
 
