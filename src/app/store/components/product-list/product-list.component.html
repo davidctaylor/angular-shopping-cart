@@ -1,0 +1,16 @@
+<ng-container *ngIf="products$ | async as productState">
+  <app-filter-control-bar
+    (filterEvent)="onFilterEvent($event)"
+    [productState]="productState"
+  ></app-filter-control-bar>
+  <div class="list-container">
+    <div class="listing">
+      <app-product-card
+        (selectEvent)="onSelectEvent($event)"
+        *ngFor="let product of productState.products"
+        [product]="product"
+        [selectedProducts]="productState.selected"
+      ></app-product-card>
+    </div>
+  </div>
+</ng-container>

@@ -1,0 +1,20 @@
+<div [class.show]="showInstructions">
+  <div class="header" (click)="toggle()">
+    <span *ngIf="showInstructions">- Hide</span>
+    <span *ngIf="!showInstructions">+ Show</span>
+    Instructions
+    <span *ngIf="showInstructions">-</span>
+    <span *ngIf="!showInstructions">+</span>
+  </div>
+  <div class="content">
+    <ol>
+      <li><b>Make an HTTP GET request</b> to obtain the listing of products from <a href="https://dummyjson.com/products" target="_blank">https://dummyjson.com/products</a></li>
+      <li><b>Display the list of products</b> from that API and include the image (thumbnail), title, description and price.</li>
+      <li><b>Add an input to filter the list</b> of products based on the search criteria. This should be case-insensitive and a match is found if the text entered is contained within the name of the product.</li>
+      <li><b>Add a "Buy" button</b> to each product. Clicking the button should increment the # of products in the cart on the 'Cart (0)' button.</li>
+      <li><b>Create a new page, and a route,</b> to display the contents of the cart. The page can be accessed by clicking on the cart button.</li>
+      <li><b>Include a subtotal</b> on the cart page that would display the total cost of all products in the cart.</li>
+    </ol>
+  </div>
+</div>
+

@@ -1,0 +1,27 @@
+:host {
+  > div {
+    position: fixed;
+    bottom: -335px;
+    left: 0;
+    right: 0;
+    transition: all ease-in-out 0.3s;
+    width: 100%;
+
+    &.show {
+      bottom: 0;
+    }
+
+    .header {
+      background: #0479B8;
+      color: #FFF;
+      cursor: pointer;
+      height: 30px;
+      line-height: 30px;
+      text-align: center;
+    }
+
+    .content {
+      height: 320px;
+    }
+  }
+}

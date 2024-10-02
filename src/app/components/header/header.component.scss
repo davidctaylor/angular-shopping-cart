@@ -1,0 +1,32 @@
+@use "../../../styles/mixins" as mixins;
+
+:host {
+  background: white;
+  color: #3c3670;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+
+  header {
+    padding: 1rem;
+
+    .heading {
+      display: flex;
+      justify-content: center;
+      h1 {
+        padding: 0;
+        margin: 0;
+      }
+    }
+  }
+  // z-index: 10;
+  // position: fixed;
+  // top: 0;
+
+  // .controls {
+  //   display: flex;
+  //   justify-content: flex-end;
+  //   @include mixins.default-button();
+  // }
+}

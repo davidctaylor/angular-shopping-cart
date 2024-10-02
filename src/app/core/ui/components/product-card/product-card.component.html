@@ -1,0 +1,26 @@
+<div class="product-card">
+  <div class="card-title">{{ product.title }}</div>
+  <div class="card-content">
+    <img src="{{ product.thumbnail }}" alt="{{ product.title }}" />
+    {{ product.description }}
+  </div>
+  <div class="card-controls">
+    <div>Price {{ product.price | currency : "USD" }}</div>
+    <div class="card-controls">
+      <p>Selected: {{ seletectCount }}</p>
+      <button
+        (click)="onClickCard('remove')"
+        aria-label="Remove from shapping card"
+      >
+        <span class="material-symbols-outlined"> delete</span>
+      </button>
+      <button
+        class="primary"
+        (click)="onClickCard('add')"
+        aria-label="Add to shapping card"
+      >
+        <span class="material-symbols-outlined"> add </span>
+      </button>
+    </div>
+  </div>
+</div>

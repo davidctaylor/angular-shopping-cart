@@ -1,0 +1,62 @@
+@use '../../../../../styles/mixins' as mixins;
+@use '../../../../../styles/colors' as colors;
+
+:host {
+
+  .product-card {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 1rem 0.5rem 1rem;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #E2E8F0;
+    border-radius: 0.75rem;
+  }
+
+  .product-card:hover {
+    transform: scale(1.02);
+    border-color: colors.$primary;
+  }
+
+  .card-title {
+    font-weight: 500;
+    padding-bottom: 0.5rem;
+  }
+
+  .card-content {
+    font-size: 14px;
+    display: flex;
+    gap: 0.5rem;
+    img {
+      max-height: 100px;
+      max-width: 100px;
+    }
+  }
+
+  .card-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 0.5rem;
+
+    @include mixins.button-style();
+    button {
+      color: colors.$primary;
+      white-space: nowrap;
+      border: 1px solid colors.$border;
+      padding: 0;
+      width: 30px;
+      height: 30px;
+      span {
+        padding-left: 2px;
+      }
+      &.primary {
+        color: white;
+        background-color: colors.$primary;
+      }
+    }
+    button:hover {
+      border-color: colors.$primary;
+    }
+  }
+}

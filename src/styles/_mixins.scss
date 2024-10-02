@@ -1,0 +1,54 @@
+@use 'sass:map';
+
+$breakpoints: (
+  'sm': 640px,
+  'md': 768px,
+  'lg': 1024px,
+  'xl': 1280px
+);
+
+@mixin page-style() {
+  margin-left: auto;
+  margin-right: auto;
+
+  @media (min-width: map.get($breakpoints, 'sm')) {
+    max-width: map.get($breakpoints, 'sm');
+  }
+
+  @media (min-width: map.get($breakpoints, 'md')) {
+    max-width: map.get($breakpoints, 'md');
+  }
+
+  @media (min-width: map.get($breakpoints, 'lg')) {
+    max-width: map.get($breakpoints, 'lg');
+  }
+
+  @media (min-width: map.get($breakpoints, 'xl')) {
+    max-width: map.get($breakpoints, 'xl');
+  }
+}
+
+@mixin button-style() {
+  button {
+    display: inline-flex;
+    height: 40px;
+    font-size: 14px;
+    font-weight: 500;
+    align-items: center;
+    padding-left: 1rem;
+    padding-right: 1rem;;
+    border-radius: 9999px;
+    cursor: pointer;
+    background-color: #fff;
+    color: black;
+    border: none;
+  }
+  
+  button:hover {
+    transform: scale(1.05);
+  }
+
+  button:focus {
+    transform: scale(1.05);
+  }
+}

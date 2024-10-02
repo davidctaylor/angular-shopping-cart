@@ -1,0 +1,18 @@
+<div class="control-bar-container">
+  <div class="input-container">Showing {{productState?.products?.length}} of {{productState?.total}} products</div>
+  <div class="input-container">
+    <div class="input-wrapper" *ngIf="filterActive">
+      <label for="filter-input">Filter products</label>
+      <input
+        id="filte-input"
+        type="text"
+        placeholder="Filter products"
+        [required]="true"
+        [formControl]="filterControl"
+      />
+    </div>
+  </div>
+  <div class="button-container">
+    <button [routerLink]="['/product-purchase']">Cart ({{productState?.selected?.length}})</button>
+  </div>
+</div>
