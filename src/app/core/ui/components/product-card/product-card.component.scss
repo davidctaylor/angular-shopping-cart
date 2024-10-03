@@ -1,21 +1,21 @@
-@use '../../../../../styles/mixins' as mixins;
-@use '../../../../../styles/colors' as colors;
+@use "../../../../../styles/mixins" as mixins;
+@use "../../../../../styles/colors" as colors;
 
 :host {
-
   .product-card {
     display: flex;
     flex-direction: column;
     padding: 1rem 1rem 0.5rem 1rem;
     border-width: 1px;
     border-style: solid;
-    border-color: #E2E8F0;
+    border-color: colors.$border;
     border-radius: 0.75rem;
   }
 
   .product-card:hover {
     transform: scale(1.02);
     border-color: colors.$primary;
+    border-width: 2px;
   }
 
   .card-title {

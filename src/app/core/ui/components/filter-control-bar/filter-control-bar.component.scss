@@ -1,28 +1,47 @@
-@use '../../../../../styles/mixins' as mixins;
-@use '../../../../../styles/colors' as colors;
+@use "sass:map";
+@use "../../../../../styles/mixins" as mixins;
+@use "../../../../../styles/colors" as colors;
 
 :host {
-  .control-bar-container{
+  .control-bar-container {
+    @include mixins.page-style();
+
     position: sticky;
     top: 0;
     background-color: white;
     display: flex;
     align-items: center;
-    gap: 1rem;
     padding-left: 1rem;
     padding-right: 1rem;
+    padding-bottom: 1rem;
+    flex-direction: column;
+
+    @media (min-width: map.get(mixins.$breakpoints, "sm")) {
+      flex-direction: row;
+      gap: 1rem;
+    }
   }
 
   .button-container {
     display: flex;
-    flex: 1;
-    justify-content: flex-end;
+    justify-content: center;
+    width: 100%;
+
+    @media (min-width: map.get(mixins.$breakpoints, "sm")) {
+      justify-content: flex-end;
+    }
 
     @include mixins.button-style();
     button {
-      color: white; //colors.$primary;
-      background-color:  colors.$primary;
+      color: white;
+      background-color: colors.$primary;
       white-space: nowrap;
+      width: 100%;
+      justify-content: center;
+
+      @media (min-width: map.get(mixins.$breakpoints, "sm")) {
+        width: auto;
+      }
     }
     button:hover {
       border-width: 1px;
@@ -32,12 +51,11 @@
   }
   .input-container {
     display: flex;
-    flex: 1;
     flex-direction: column;
-    padding: 0.5rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
     position: relative;
-    background: white;
-    width: 50%;
+    width: 100%;
 
     .input-wrapper {
       display: flex;

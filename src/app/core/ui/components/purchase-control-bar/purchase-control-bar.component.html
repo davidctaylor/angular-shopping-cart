@@ -1,7 +1,11 @@
 <div class="control-bar-container">
-  <div class="input-container">Selected item: {{productState?.selected?.length}}</div>
-  <div class="input-container">Cart value: {{cartValue | currency : "USD" }}</div>
- 
+  <div class="content-container">
+    Selected items: {{ productState?.selected?.length }}
+  </div>
+  <div class="content-container">
+    Cart value: {{ cartValue | currency : "USD" }}
+  </div>
+
   <div class="button-container">
     <button [routerLink]="['/product-list']">Continue shopping</button>
   </div>

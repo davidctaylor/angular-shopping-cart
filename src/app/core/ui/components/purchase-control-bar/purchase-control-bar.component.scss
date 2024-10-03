@@ -1,28 +1,48 @@
-@use '../../../../../styles/mixins' as mixins;
-@use '../../../../../styles/colors' as colors;
+@use "sass:map";
+@use "../../../../../styles/mixins" as mixins;
+@use "../../../../../styles/colors" as colors;
 
 :host {
-  .control-bar-container{
+  .control-bar-container {
+    @include mixins.page-style();
+
     position: sticky;
     top: 0;
     background-color: white;
     display: flex;
     align-items: center;
-    gap: 1rem;
     padding-left: 1rem;
     padding-right: 1rem;
+    flex-direction: column;
+
+    row-gap: 1rem;
+
+    @media (min-width: map.get(mixins.$breakpoints, "sm")) {
+      flex-direction: row;
+      gap: 1rem;
+    }
   }
 
   .button-container {
     display: flex;
-    flex: 1;
-    justify-content: flex-end;
+    justify-content: center;
+    width: 100%;
+
+    @media (min-width: map.get(mixins.$breakpoints, "sm")) {
+      justify-content: flex-end;
+    }
 
     @include mixins.button-style();
     button {
-      color: white; //colors.$primary;
-      background-color:  colors.$primary;
+      color: white;
+      background-color: colors.$primary;
       white-space: nowrap;
+      width: 100%;
+      justify-content: center;
+
+      @media (min-width: map.get(mixins.$breakpoints, "sm")) {
+        width: auto;
+      }
     }
     button:hover {
       border-width: 1px;
@@ -30,56 +50,8 @@
       border-color: colors.$border;
     }
   }
-  .input-container {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    padding: 0.5rem;
-    position: relative;
-    background: white;
-    width: 50%;
 
-    .input-wrapper {
-      display: flex;
-      border-radius: 0.75rem;
-      border: none;
-      padding: 0.25rem;
-      background: inherit;
-
-      label {
-        background: inherit;
-        padding-left: 0.5rem;
-        padding-right: 0.5rem;
-        font-size: 12px;
-        position: absolute;
-        color: colors.$primary;
-        top: 0;
-        left: 1.5rem;
-        display: none;
-      }
-
-      input {
-        width: 100%;
-        border-width: 1px;
-        border-style: solid;
-        border-color: colors.$border;
-        border-radius: 0.75rem;
-        height: 40px;
-        padding-left: 0.5rem;
-        padding-right: 0.5rem;
-      }
-    }
-
-    .input-wrapper:hover {
-      border-width: 1px;
-      border-style: solid;
-      border-color: colors.$border;
-      label {
-        display: block;
-      }
-      input {
-        border: none;
-      }
-    }
+  .content-container {
+    white-space: nowrap;
   }
 }

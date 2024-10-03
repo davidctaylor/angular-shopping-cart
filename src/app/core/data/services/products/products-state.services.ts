@@ -25,21 +25,27 @@ export class ProductsStateService {
           return state;
         }
 
+        let filterWords = state.filter.toLowerCase().split(' ');
+
         return {
           ...state,
           products: state.products.filter((product) => {
             // there is no 'name' field
-            return product.title.toLowerCase().includes(state.filter as string);
+            const title = product.title.toLowerCase();
+
+            return filterWords.some(
+              (filter) => filter !== '' && title.indexOf(filter) >= 0
+            );
           }),
         };
-      }),
+      })
     );
   }
 
   public filter(filter: string | undefined) {
     this._productState.next({
       ...this._productState.value,
-      filter: filter?.toLocaleLowerCase(),
+      filter: filter,
     });
   }
 
@@ -47,7 +53,7 @@ export class ProductsStateService {
     this._productState.next({
       ...this._productState.value,
       selected: [product, ...this._productState.value.selected].sort(
-        (a, b) => b.id - a.id
+        (a: DummyProduct, b: DummyProduct) => b.id - a.id
       ),
     });
   }
@@ -57,14 +63,17 @@ export class ProductsStateService {
     this._productState.next({
       ...this._productState.value,
       selected: [
-        ...this._productState.value.selected.reduce((a: DummyProduct[], b) => {
-          if (!found && b.id === product.id) {
-            found = true;
+        ...this._productState.value.selected.reduce(
+          (a: DummyProduct[], b: DummyProduct) => {
+            if (!found && b.id === product.id) {
+              found = true;
+              return a;
+            }
+            a.push(b);
             return a;
-          }
-          a.push(b);
-          return a;
-        }, []),
+          },
+          []
+        ),
       ],
     });
   }
@@ -78,7 +87,7 @@ export class ProductsStateService {
           products: [...resp],
           total: resp.length,
         })
-      ),
+      )
     );
   }
 }
