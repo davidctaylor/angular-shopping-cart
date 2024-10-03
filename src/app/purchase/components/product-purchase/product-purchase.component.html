@@ -1,15 +1,20 @@
-<ng-container *ngIf="products$ | async as productState">
-  <app-purchase-control-bar [productState]="productState"></app-purchase-control-bar>
-  <div class="list-container">
-    <h2>Items for purchase</h2>
-  
+<app-header pageName="Shopping Cart"></app-header>
+<main>
+  <ng-container *ngIf="products$ | async as productState">
+    <app-purchase-control-bar
+      [productState]="productState"
+    ></app-purchase-control-bar>
+    <div class="list-container">
+      <h2>Items for purchase</h2>
+
       <div class="listing" *ngIf="uniqueProducts$ | async as entries">
-        <app-product-card (selectEvent)="onSelectEvent($event)"
+        <app-product-card
+          (selectEvent)="onSelectEvent($event)"
           *ngFor="let product of entries"
           [product]="product"
           [selectedProducts]="productState.selected"
         ></app-product-card>
       </div>
-  </div>
+    </div>
   </ng-container>
-  
+</main>

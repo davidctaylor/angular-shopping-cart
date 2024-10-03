@@ -26,22 +26,32 @@
   .button-container {
     display: flex;
     justify-content: center;
+    flex-direction: column;
     width: 100%;
+    gap: 1rem;
 
     @media (min-width: map.get(mixins.$breakpoints, "sm")) {
       justify-content: flex-end;
+      flex-direction: row;
     }
 
     @include mixins.button-style();
     button {
-      color: white;
-      background-color: colors.$primary;
       white-space: nowrap;
       width: 100%;
       justify-content: center;
+      color: colors.$primary;
+      border-color: colors.$primary;
+      border-width: 1px;
+      border-style: solid;
 
       @media (min-width: map.get(mixins.$breakpoints, "sm")) {
         width: auto;
+      }
+
+      &.primary {
+        color: white;
+        background-color: colors.$primary;
       }
     }
     button:hover {

@@ -6,6 +6,10 @@
     @include mixins.page-style();
   }
 
+  .sub-heading {
+    @include mixins.page-style();
+  }
+
   .listing {
     @include mixins.card-listing-container();
   }

@@ -2,13 +2,22 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { catchError, Observable, take } from 'rxjs';
 
-import { FilterControlbarComponent, ProductCardComponent } from '@shop/core-ui';
+import {
+  FilterControlbarComponent,
+  ProductCardComponent,
+  HeaderComponent,
+} from '@shop/core-ui';
 import { ProductsStateService, ProductState } from '@shop/core-data';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-product-list',
-  imports: [CommonModule, FilterControlbarComponent, ProductCardComponent],
+  imports: [
+    CommonModule,
+    FilterControlbarComponent,
+    ProductCardComponent,
+    HeaderComponent,
+  ],
   standalone: true,
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.scss'],
