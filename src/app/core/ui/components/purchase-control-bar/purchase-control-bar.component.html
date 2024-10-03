@@ -8,6 +8,8 @@
 
   <div class="button-container">
     <button [routerLink]="['/product-list']">Continue shopping</button>
-    <button class="primary">Purchase</button>
+    <button class="primary">
+      Purchase ({{ productState?.selected?.length }}) items
+    </button>
   </div>
 </div>
